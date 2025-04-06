@@ -14,11 +14,10 @@ PassGuard is a desktop application designed to securely manage and store passwor
 ## Project Type: Desktop Application
 
 ## Technologies Used:
-- **Frontend**: React (or another suitable frontend framework)
+- **Frontend**: React, typescript, tailwindcss
 - **Backend**: Electron (for building the desktop app)
-- **Encryption**: AES (Advanced Encryption Standard) or RSA encryption algorithms
-- **Database**: SQLite (or other local storage solutions)
-- **Authentication**: JWT (JSON Web Tokens) or other secure methods
+- **Encryption**: AES and hashing techniques
+- **Database**: SQLite 
 
 ## Installation
 
