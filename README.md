@@ -1,58 +1,36 @@
-# Getting Started with PassGuard
+# PassGuard: SDP Desktop Application for Secure Password Management
 
-This guide walks you through setting up your development environment and running the application.
+## Project Description
+PassGuard is a desktop application designed to securely manage and store passwords using **Secure Data Protection (SDP)** principles. The application allows users to save, retrieve, and organize their passwords in an encrypted and highly secure environment. Built with **robust encryption algorithms** and **user-friendly design**, PassGuard ensures that sensitive information is protected at all times, providing users with the peace of mind that their credentials are safe.
 
-## Prerequisites
+## Key Features
+- **Password Storage**: Securely store usernames, passwords, and other sensitive data.
+- **Data Encryption**: All stored data is encrypted using advanced encryption standards to ensure confidentiality.
+- **User Authentication**: Secure user authentication to access the password manager.
+- **Password Generator**: Generate strong, random passwords for use in different services.
+- **Easy Access**: Quickly access stored passwords with a simple and intuitive interface.
+- **Cross-Platform Support**: Available for both Windows and macOS, ensuring accessibility across different platforms.
 
-* **Git:** Make sure you have Git installed. Get it from https://git-scm.com/downloads(https://git-scm.com/downloads).
-* **Node.js & npm:** Download and install the latest version of Node.js from the official website: https://nodejs.org/en. This will also install npm (Node Package Manager).
+## Project Type: Desktop Application
 
-## 1. Clone the Repository
+## Technologies Used:
+- **Frontend**: React (or another suitable frontend framework)
+- **Backend**: Electron (for building the desktop app)
+- **Encryption**: AES (Advanced Encryption Standard) or RSA encryption algorithms
+- **Database**: SQLite (or other local storage solutions)
+- **Authentication**: JWT (JSON Web Tokens) or other secure methods
 
-Open your terminal or command prompt, navigate to your desired project directory, and run the following command to clone the project repository:
+## Installation
 
-```bash
-git clone [https://docs.github.com/articles/cloning-a-repository](https://docs.github.com/articles/cloning-a-repository)
-```
+To run PassGuard on your local machine, follow these steps:
 
-Replace `https://docs.github.com/articles/cloning-a-repository` with the actual URL of your Git repository.
+### Prerequisites
+Make sure you have the following installed:
+- **Node.js** (for building and running the app)
+- **npm** or **yarn** (for managing dependencies)
 
-## 2. Install Dependencies
-
-Navigate into the cloned project directory:
-
-```bash
-cd [project_name]
-```
-
-Replace `[project_name]` with the actual name of your project directory.
-
-Then, install the project's dependencies using npm:
-
-```bash
-npm install
-```
-
-This downloads and installs all the required packages listed in the `package.json` file.
-
-## 3. Database Setup
-
-**Option 1: Using Prisma** (if your project uses Prisma for database management)
-
-Run the following command to build the Prisma schema and create the database tables (if they don't already exist):
-
-```bash
-npx prisma build
-```
-
-**Option 2: Manual Database Setup** (if you're using a different database management system)
-
-Follow the instructions specific to your chosen database (e.g., MySQL, PostgreSQL) to create the necessary tables and structures. These instructions might involve creating a database user, importing a schema file, or using a GUI tool provided by your database system.
-
-## 4. Run the Development Server
-
-Start the development server using npm:
-
-```bash
-npm run dev
-```
+### Steps to Run Locally:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Youssef-Alyy/passguard.git
+    ```
