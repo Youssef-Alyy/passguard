@@ -1,0 +1,91 @@
+$cubic-out: cubic-bezier(.32, 2.04, .85, .54);
+$cubic-in: cubic-bezier(.72, 1.2, .71, .72);
+$shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+
+
+.kebab {
+    cursor: pointer;
+    position:relative;
+    display: inline-block;
+    box-sizing: border-box;
+    padding : 3px;
+    figure {
+        width: 4px;
+        height: 4px;
+        border-radius: 5px;
+        background: gray;
+        margin: 3px 0;
+    }
+}
+
+.middle {
+    transition: all 0.25s $cubic-in;
+    transform: scale(1);
+    position: relative;
+    box-shadow: 0 0.1px 0.1px 0 rgba(0, 0, 0, 0.16), 0 0.1px 0.3px 0 rgba(0, 0, 0, 0.12);
+    -webkit-filter: blur(.1px);
+    filter: blur(.1px);
+}
+
+.middle.active {
+    transform: scale(5);
+    transition: all 0.25s $cubic-out;
+    box-shadow: 0 0.1px 0.1px 0 rgba(0, 0, 0, 0.16), 0 0.1px 0.3px 0 rgba(0, 0, 0, 0.12);
+}
+
+.cross {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    margin-top: -1px;
+    color: white;
+    transition: all 0.2s $cubic-in;
+    font-size: 22px;
+    user-select: none;
+}
+
+.cross.active {
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.15s $cubic-out;
+}
+.dropdown {
+    position: absolute;
+    left: -550%;
+    top: 1.9em;
+    transition: all 0.25s ease-out;
+    transform: scale(0);
+    box-shadow: $shadow;
+    z-index: 100;
+
+    li {
+        display: block;
+        width: 100%;
+
+        p {
+            width: 100%;
+            padding: 1em 18px;
+            display: inline-block;
+            white-space: pre;
+            box-sizing: border-box;
+            color: white;
+            &:hover {
+                background: rgb(250, 204, 21);
+                color: black;
+                border-radius: 0.2rem;
+                transition: all 0.10s ease-out;
+            }
+        }
+    }
+
+    &:hover {
+        ul {
+            transform: scale(1);
+        }
+    }
+}
+
+.dropdown.active {
+    transform: scale(1);
+    transition: all 0.25s cubic-bezier(.5, 1.8, .9, .8);
+}

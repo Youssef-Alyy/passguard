@@ -1,0 +1,62 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  engineType    = "library"
+  binaryTargets = ["native", "windows"]
+}
+
+model User {
+  userId            Int                @id @default(autoincrement()) //(D)
+  masterPassword    String
+  data              String             @unique //firstName, lastName, email, picture, phone # 
+  salt              String?
+  dateCreated       DateTime           @default(now())
+  dateUpdated       DateTime           @updatedAt
+  lastBackupDate    DateTime           @default(now())
+  preference        String //{trashDuration: "", lockDuration: "", theme: "", loginOtp: "", forgetPassOtp: ""}
+  documents         Document[]
+  credentials       Credential[]
+  securityquestions SecurityQuestion[]
+}
+
+model Credential {
+  credentialId Int      @id @default(autoincrement())
+  serviceName  String
+  title        String
+  data         String //Username, Password (As An Encrypted JSON)
+  url          String?
+  isWeak       Boolean
+  isReused     Boolean?
+  isOld        Boolean  @default(false)
+  dateCreated  DateTime @default(now())
+  dateUpdated  DateTime @default(now())
+  serviceType  String   @default("Personal") //"Like 'Personal', 'Social Media', 'Email', 'Banking', etc." //CT
+  picture      String?
+  isFavourite  Boolean  @default(false)
+  isTrashed    Boolean  @default(false)
+  dateTrashed  DateTime @default(now())
+  User         User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  userId       Int //Foreign key
+}
+
+model SecurityQuestion {
+  securityQuestionId Int    @id @default(autoincrement())
+  data               String //Question, HashedAnswer (As An Encrypted JSON)
+  User               User   @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  userId             Int //Foreign key
+}
+
+model Document {
+  documentId  Int      @id @default(autoincrement())
+  name        String
+  path        String
+  type        String
+  category    String
+  dateCreated DateTime @default(now())
+  User        User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  userId      Int //Foreign key
+}
